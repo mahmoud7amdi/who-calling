@@ -12,7 +12,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::all();
+        $faq = Faq::select('id','question_'.app() -> getLocale() . ' as question','answer_'.app() -> getLocale() . ' as answer')->get();
         if (!$faq)
         {
             return response()->json([

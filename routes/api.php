@@ -30,11 +30,15 @@ Route::group(['middleware' => ['auth:sanctum','role:user']],function() {
 
 
 });
-Route::get('privacy-Policy',[PrivacyPolicyController::class,'index']);
-Route::get('about-us',[AboutUSController::class,'index']);
-Route::get('faq',[FaqController::class,'index']);
 
-Route::group(['middleware' => ['auth:sanctum','role:admin']],function() {
+Route::group(['middleware' => ['auth:sanctum','role:admin','localization']],function() {
+    Route::get('privacy-Policy',[PrivacyPolicyController::class,'index']);
+    Route::get('about-us',[AboutUSController::class,'index']);
+    Route::get('faq',[FaqController::class,'index']);
+});
+
+
+Route::group(['middleware' => ['auth:sanctum','role:admin','localization']],function() {
 
     // About Us Route
 
