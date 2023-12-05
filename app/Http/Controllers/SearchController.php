@@ -57,10 +57,10 @@ class SearchController extends Controller
             ]);
 
 
-        }elseif ($request->phone && $request->country_id && $request->first_name){
+        }elseif ($request->phone && $request->country_id && $request->name){
             $result = $user->where('phone', $request->phone)
                 ->where('country_id',$request->country_id)
-                ->where('first_name',$request->first_name)->get();
+                ->where(DB::raw("concat(first_name, ' ', last_name) "),$request->name)->get();
             return response()->json([
                 "message" => 'All search',
                 "data" => $result

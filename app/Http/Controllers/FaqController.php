@@ -17,12 +17,12 @@ class FaqController extends Controller
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Faq Not found'
+                'message' => trans('message.failed-message'),
             ]);
         }else{
             return response()->json([
                 'status' => 200,
-                'message' => 'all faq' ,
+                'message' => trans('message.all-faq'),
                 'data' => $faq
             ]);
         }
@@ -50,7 +50,7 @@ class FaqController extends Controller
         $faq = Faq::create($validated);
         return response()->json([
             'status' => 200,
-            'message' => 'Faq Added Successfully',
+            'message' => trans('message.added-success'),
             'data' => $faq
         ]);
     }
@@ -75,7 +75,7 @@ class FaqController extends Controller
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'Faq not found',
+                'message' => trans('message.all-faq'),
             ]);
         }
     }
@@ -106,13 +106,13 @@ class FaqController extends Controller
             $faq->update($validated);
             return response()->json([
                 'status' => 200,
-                'message' => 'Faq Updated Successfully',
+                'message' => trans('message.success-update'),
                 'data' => $faq
             ]);
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'Faq Not Found',
+                'message' => trans('message.failed-update-message'),
 
             ]);
         }
@@ -128,14 +128,14 @@ class FaqController extends Controller
         if ($faq){
             $faq->delete();
             return response()->json([
-                'message' => 'Faq deleted successfully',
+                'message' => trans('message.success-delete'),
                 'status' => 200,
 
             ]);
 
         }else{
             return response()->json([
-                'message' => 'Faq Not found',
+                'message' => trans('message.failed-delete-message'),
 
 
             ]);

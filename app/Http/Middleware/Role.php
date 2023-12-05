@@ -24,11 +24,14 @@ class Role
             Cache::put('user-is-online' . Auth::user()->id, true,$expireTime);
             User::where('id',Auth::user()->id)->update(['last_seen' => Carbon::now()]);
         }
-
-
         if($request->user()->role !== $role){
-            return  response()->json(['message' => 'not found']);
+            return redirect('dashboard');
         }
+
+//        if($request->user()->role !== $role){
+////            return  response()->json(['message' => 'not found']);
+//            return 'error' ;
+//        }
         return $next($request);
     }
 }
