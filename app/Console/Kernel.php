@@ -4,15 +4,18 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use function PHPUnit\Framework\logicalAnd;
 
 class Kernel extends ConsoleKernel
 {
+
     /**
      * Define the application's command schedule.
      */
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('sanctum:prune-expired ');
     }
 
     /**

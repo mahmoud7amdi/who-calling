@@ -19,11 +19,10 @@ class SearchController extends Controller
         );
 
         if ($request->phone && $request->country_id) {
-
-
-            $result = $contacts->where('phone', $request->phone)
-                ->where('country_id', $request->country_id)->get();
-
+            $result = $contacts->where(function ($query) use ($request) {
+                $query->where('phone', $request->phone)
+                    ->where('country_id', $request->country_id);
+            })->get();
             if ($result->isEmpty()) {
                 $value = $user->where('phone', $request->phone)
                     ->where('country_id', $request->country_id)->get();
@@ -31,25 +30,27 @@ class SearchController extends Controller
                     "message" => 'All search',
                     "data" => $value
                 ]);
-
             }
             return response()->json([
                 "message" => 'All search',
                 "data" => $result
             ]);
-
-
         } elseif ($request->name && $request->country_id) {
-            $result = $contacts->where('name', $request->name)
-                ->where('country_id', $request->country_id)->get();
+            $result = $contacts->where(function ($query) use ($request) {
+                $query->where('name', "like", "%" . $request->name . "%")
+                    ->where('country_id', $request->country_id);
+            })->get();
             if ($result->isEmpty()) {
+                $value = $user->where(function ($query) use ($request) {
+                    $query->where(DB::raw("concat(first_name, ' ', last_name) "), "like", "%" . $request->name . "%")
+                        ->where('country_id', $request->country_id);
+                })->get();
 
-                $value = $user->where(DB::raw("concat(first_name, ' ', last_name) "), $request->name)
-                    ->where('country_id', $request->country_id)->get();
                 return response()->json([
                     "message" => 'All search',
                     "data" => $value
                 ]);
+
             }
             return response()->json([
                 "message" => 'All search',
@@ -57,15 +58,22 @@ class SearchController extends Controller
             ]);
 
 
-        }elseif ($request->phone && $request->country_id && $request->name){
-            $result = $user->where('phone', $request->phone)
-                ->where('country_id',$request->country_id)
-                ->where(DB::raw("concat(first_name, ' ', last_name) "),$request->name)->get();
+        }elseif ($request->phone && $request->country_id && $request->name) {
+
+            $value = $user->where(function ($query) use ($request) {
+                $query->where(DB::raw("concat(first_name, ' ', last_name) "), "like", "%" . $request->name . "%")
+                    ->where('country_id', $request->country_id)
+                    ->where('phone', $request->phone);
+
+            })->get();
+
             return response()->json([
                 "message" => 'All search',
-                "data" => $result
+                "data" => $value
             ]);
-        }else{
+
+
+        } else {
             return response()->json([
                 "message" => 'Not Found'
             ]);
@@ -73,3 +81,4 @@ class SearchController extends Controller
 
     }
 }
+

@@ -45,7 +45,9 @@ class UserController extends Controller
             'phone' => 'required'
         ]);
 
+
         $user = User::where('phone',$validated['phone'])->first();
+        $user->tokens()->delete();
         if(!$user){
             return response()->json([
                 'message' => 'Login Information Invalid'
@@ -57,6 +59,7 @@ class UserController extends Controller
                 'data' => $user ,
                 'token' => $user->createToken('api_token')->plainTextToken
             ]);
+
         }
 
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchController ;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AboutUSController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,16 @@ Route::group(['middleware' => ['auth:sanctum','role:user']],function() {
 
 });
 
+
+
+
 Route::group(['middleware' => ['auth:sanctum','localization']],function() {
+
+    Route::controller(NotificationController::class)->group(function (){
+
+        Route::put('fcm-token','update');
+
+    });
     Route::get('privacy-Policy',[PrivacyPolicyController::class,'index']);
     Route::get('about-us',[AboutUSController::class,'index']);
     Route::get('faq',[FaqController::class,'index']);
@@ -66,6 +76,8 @@ Route::group(['middleware' => ['auth:sanctum','role:admin','localization']],func
         Route::put('privacy-Policy/{id}','update');
         Route::delete('privacy-Policy/{id}','destroy');
     });
+
+
 
 
 });
