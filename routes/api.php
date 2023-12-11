@@ -21,16 +21,17 @@ use App\Http\Controllers\NotificationController;
 |
 */
 
-Route::group(['middleware' => ['auth:sanctum','role:user']],function() {
+Route::group(['middleware' => ['auth:sanctum','role:admin']],function() {
     Route::get('profile', [UserController::class, 'profile']);
     Route::post('logout', [UserController::class, 'logout']);
     Route::put('updateProfile',[UserController::class,'UpdateProfile']);
     Route::post('search',[SearchController::class,'Search']);
     Route::get('find-near-users/{distance}', [FindLocationController::class,'nearUsers']);
-
+    Route::put('updateProfile',[UserController::class,'UpdateProfile']);
 
 
 });
+
 
 
 
