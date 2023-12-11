@@ -4,53 +4,52 @@
             <img src="{{ asset('Adminbackend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Who Calling</h4>
+            <h4 class="logo-text">Who Calling ?</h4>
         </div>
-        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
-        </div>
+
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
-                </div>
-                <div class="menu-title">About Us</div>
-            </a>
-            <ul>
-                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
-                </li>
-                <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-                </li>
-                <li> <a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
-                </li>
-                <li> <a href="dashboard-digital-marketing.html"><i class="bx bx-right-arrow-alt"></i>Digital Marketing</a>
-                </li>
-                <li> <a href="dashboard-human-resources.html"><i class="bx bx-right-arrow-alt"></i>Human Resources</a>
-                </li>
-            </ul>
-        </li>
+
+
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Privacy Policy</div>
+                <div class="menu-title">General</div>
             </a>
             <ul>
-                <li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
-                </li>
-                <li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>
-                </li>
-                <li> <a href="app-file-manager.html"><i class="bx bx-right-arrow-alt"></i>File Manager</a>
-                </li>
-                <li> <a href="app-contact-list.html"><i class="bx bx-right-arrow-alt"></i>Contatcs</a>
-                </li>
-                <li> <a href="app-to-do.html"><i class="bx bx-right-arrow-alt"></i>Todo List</a>
-                </li>
-                <li> <a href="app-invoice.html"><i class="bx bx-right-arrow-alt"></i>Invoice</a>
-                </li>
-                <li> <a href="app-fullcalender.html"><i class="bx bx-right-arrow-alt"></i>Calendar</a>
-                </li>
+
+                <li> <a href="{{ route('about.us') }}"><i class="bx bx-right-arrow-alt"></i>About-Us</a>
+
+            </ul>
+
+            <ul>
+
+                <li> <a href="{{ route('privacy.policy') }}"><i class="bx bx-right-arrow-alt"></i>Privacy Policy</a>
+
+            </ul>
+
+            <ul>
+
+                <li> <a href="{{ route('all.faq') }}"><i class="bx bx-right-arrow-alt"></i>FAQ</a>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Users</div>
+            </a>
+            <ul>
+{{--                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Add About-Us</a>--}}
+{{--                </li>--}}
+                <li> <a href="{{ route('all-user') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a>
+                <li> <a href="{{ route('premium.user') }}"><i class="bx bx-right-arrow-alt"></i>All premium users</a>
+                <li> <a href="{{ route('normal.user') }}"><i class="bx bx-right-arrow-alt"></i>All normal users</a>
+
             </ul>
         </li>
 
@@ -63,13 +62,11 @@
 
 
 
-        <li>
-            <a href="faq.html">
-                <div class="parent-icon"><i class="bx bx-help-circle"></i>
-                </div>
-                <div class="menu-title">FAQ</div>
-            </a>
-        </li>
+
+
+
+
+
 
 
 

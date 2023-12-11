@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    {{ asset('Adminbackend/') }}
+
     <link rel="icon" href="{{ asset('Adminbackend/assets/images/favicon-32x32.png') }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('Adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
     <link href="{{ asset('Adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('Adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('Adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <!-- loader-->
     <link href="{{ asset('Adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
     <script src="{{ asset('Adminbackend/assets/js/pace.min.js') }}"></script>
@@ -20,11 +21,14 @@
     <link href="{{ asset('Adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Adminbackend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('Adminbackend/assets/css/icons.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Theme Style CSS -->
+    <link href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('Adminbackend/assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('Adminbackend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('Adminbackend/assets/css/header-colors.css') }}" />
-    <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <title>Who Calling ?</title>
 </head>
 
 <body>
@@ -161,6 +165,30 @@
 <script src="{{ asset('Adminbackend/assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('Adminbackend/assets/plugins/jquery-knob/excanvas.js') }}"></script>
 <script src="{{ asset('Adminbackend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+</script>
+
 <script>
     $(function() {
         $(".knob").knob();
@@ -169,6 +197,18 @@
 <script src="{{ asset('Adminbackend/assets/js/index.js') }}"></script>
 <!--app JS-->
 <script src="{{ asset('Adminbackend/assets/js/app.js') }}"></script>
+<script src="{{ asset('adminbackend/assets/js/validate.min.js') }}"></script>
+<script src="{{ asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+</script>
 </body>
 
 </html>

@@ -49,8 +49,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function accessTokens() {
-        return $this->hasMany(AuthAccessToken::class);
+    public function profile() {
+        return $this->hasOne(Profile::class);
     }
+
+
 
 }
