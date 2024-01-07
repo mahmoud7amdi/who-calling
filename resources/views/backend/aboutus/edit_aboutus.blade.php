@@ -32,22 +32,28 @@
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $aboutus->id }}">
 
+
+
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">About US</h6>
+                                            <h6 class="mb-0">About-us ar</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
-                                            <textarea required  name="text"  class="form-control" rows="3">{{ $aboutus->text }}</textarea>
+                                            <textarea required  name="text_ar" class="form-control" rows="3">{{ $aboutus->text_ar }}</textarea>
 
                                         </div>
                                     </div>
 
 
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">About-us en</h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea required  name="text_en" class="form-control" rows="3">{{ $aboutus->text_en }}</textarea>
 
-
-
-
-
+                                        </div>
+                                    </div>
 
 
                                     <div class="row">

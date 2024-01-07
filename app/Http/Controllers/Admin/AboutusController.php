@@ -23,7 +23,8 @@ class AboutusController extends Controller
     public function StoreAboutus(Request $request)
     {
         AboutUS::insert([
-            'text' => $request->text,
+            'text_ar' => $request->text_ar,
+            'text_en' => $request->text_en,
         ]);
         $notification = array(
             'message' => 'About US Added Successfully',
@@ -43,7 +44,8 @@ class AboutusController extends Controller
         $aboutus = $request->id ;
 
         AboutUS::findOrFail($aboutus)->update([
-            'text'=> $request->text
+            'text_ar' => $request->text_ar,
+            'text_en' => $request->text_en,
         ]);
 
 

@@ -9,7 +9,8 @@ class privacyPolicy extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'text'
+        'text_ar',
+        'text_en'
     ];
 
     protected $hidden = [

@@ -11,12 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('profile_views', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('visitor_id');
             $table->unsignedBigInteger('profile_id');
             $table->timestamps();
+
+            $table->foreign('visitor_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
         });
+
     }
 
     /**
@@ -24,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('profile_views');
     }
 };

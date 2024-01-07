@@ -12,4 +12,13 @@ return [
     'failed-update-message' => 'فشل التعديل',
     'failed-delete-message' => 'فشل الحذف',
     'all-faq' => 'كل الاسئله',
+    'all-privacy-policy' => 'كل سياسات الخصوصيه',
+    'privacy-policy-not-found' => ' لم يتم العصور على سياسة الخصوصيه ',
+    'privacy-policy-updated' => 'تم تعديل سياسه الخصوصيه بنجاح',
+    'privacy-policy-deleted' => 'تم حذف سياسه الخصوصيه بنجاح',
+    'all-about-us' => 'كل المعلومات عنا',
+    'About-us-not-found' => ' لم يتم العصور على المعلومات ',
+    'About-us-updated' => 'تم تعديل المعلومات بنجاح',
+    'About-us-deleted' => 'تم حذف المعلومات بنجاح',
+
 ];

@@ -16,12 +16,12 @@ class PrivacyPolicyController extends Controller
         {
             return response()->json([
                 'status' => 400,
-                'message' => ' privacy Policy Not found'
+                'message' => trans('message.privacy-policy-not-found')
             ]);
         }else{
             return response()->json([
                 'status' => 200,
-                'message' => 'All privacy Policy',
+                'message' => trans('message.all-privacy-policy'),
                 'data' => $privacyPolicy
             ]);
         }
@@ -32,12 +32,13 @@ class PrivacyPolicyController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            "text" => 'required'
+            "text_ar" => 'required',
+            "text_en" => 'required'
         ]);
         $privacyPolicy = privacyPolicy::create($validated);
         return response()->json([
             'status' => 200,
-            'message' => 'privacy Policy add successfully',
+            'message' => trans('message.added-success'),
             'data' => $privacyPolicy
         ]);
     }
@@ -63,7 +64,7 @@ class PrivacyPolicyController extends Controller
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'not found',
+                'message' => trans('message.failed-message'),
             ]);
         }
 
@@ -84,7 +85,8 @@ class PrivacyPolicyController extends Controller
     {
         $privacyPolicy = privacyPolicy::find($id);
         $validated = $request->validate([
-            "text" => 'required'
+            "text_ar" => 'required',
+            "text_en" => 'required'
         ]);
 
 
@@ -92,13 +94,13 @@ class PrivacyPolicyController extends Controller
             $privacyPolicy->update($validated);
             return response()->json([
                 'status' => 200,
-                'message' => 'privacy Policy Updated Successfully',
+                'message' => trans('message.privacy-policy-updated'),
                 'data' => $privacyPolicy
             ]);
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'privacy Policy Not Found',
+                'message' => trans('message.privacy-policy-not-found')
 
             ]);
         }
@@ -115,14 +117,14 @@ class PrivacyPolicyController extends Controller
         if ($privacyPolicy){
             $privacyPolicy->delete();
             return response()->json([
-                'message' => 'privacy Policy deleted successfully',
+                'message' =>  trans('message.privacy-policy-deleted'),
                 'status' => 200,
 
             ]);
 
         }else{
             return response()->json([
-                'message' => 'privacy Policy Not found',
+                'message' => trans('message.privacy-policy-not-found')
 
 
             ]);

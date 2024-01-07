@@ -31,7 +31,8 @@
                         <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Privacy Policy</th>
+                            <th>Privacy-Policy ar</th>
+                            <th>Privacy-Policy en</th>
 
                             <th>Action</th>
 
@@ -41,7 +42,8 @@
                         @foreach($allPrivacy as $key => $item)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ $item->text }}</td>
+                                <td>{{ $item->text_ar }}</td>
+                                <td>{{ $item->text_en }}</td>
 
                                 <td class="d-flex">
                                     <a href="{{ route('edit.privacy',$item->id) }}" class="btn btn-info mx-1">Edit</a>
@@ -63,7 +65,8 @@
                         <tfoot>
                         <tr>
                             <th>Sl</th>
-                            <th>Privacy Policy</th>
+                            <th>Privacy-Policy ar</th>
+                            <th>Privacy-Policy en</th>
 
                             <th>Action</th>
 

@@ -87,7 +87,7 @@
 
 
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ (!empty($data->profile_image)) ? url('uploads/profile_image/'.$data->profile_image):url('uploads/no_image.jpg') }}" class="user-img" alt="user avatar">
+                    <img src="{{ (!empty($data->profile_image)) ? url('upload/profile_image/'.$data->profile_image):url('upload/no_image.jpg') }}" class="user-img" alt="user avatar">
                     <div class="user-info ps-3">
                         <p class="user-name mb-0">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
                         <p class="designattion mb-0">Admin</p>

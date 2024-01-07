@@ -33,10 +33,20 @@
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Privacy Policy</h6>
+                                            <h6 class="mb-0">Privacy Policy ar</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
-                                            <textarea required name="text" class="form-control" rows="3"></textarea>
+                                            <textarea required name="text_ar" class="form-control" rows="3"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Privacy-Policy en</h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea required name="text_en" class="form-control" rows="3"></textarea>
 
                                         </div>
                                     </div>

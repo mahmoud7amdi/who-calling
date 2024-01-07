@@ -31,7 +31,8 @@
                         <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>About Us</th>
+                            <th>About-Us ar</th>
+                            <th>About-Us en</th>
 
                             <th>Action</th>
 
@@ -41,7 +42,8 @@
                         @foreach($aboutus as $key => $item)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ $item->text }}</td>
+                                <td>{{ $item->text_ar }}</td>
+                                <td>{{ $item->text_en }}</td>
 
                                 <td class="d-flex">
                                     <a href="{{ route('edit.aboutus',$item->id) }}" class="btn btn-info mx-1">Edit</a>
@@ -63,7 +65,9 @@
                         <tfoot>
                         <tr>
                             <th>Sl</th>
-                            <th>About Us</th>
+                            <th>About-Us ar</th>
+                            <th>About-Us en</th>
+
 
                             <th>Action</th>
 

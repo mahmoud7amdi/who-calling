@@ -4,7 +4,7 @@
             <img src="{{ asset('Adminbackend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Who Calling ?</h4>
+         <a href="{{ route('admin.dashboard') }}" class="logo-text" >Who Calling ?</a>
         </div>
 
     </div>

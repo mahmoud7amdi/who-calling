@@ -9,6 +9,7 @@ use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AboutUSController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ProfileViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +22,24 @@ use App\Http\Controllers\NotificationController;
 |
 */
 
-Route::group(['middleware' => ['auth:sanctum','role:admin']],function() {
+Route::group(['middleware' => ['auth:sanctum','role:user']],function() {
     Route::get('profile', [UserController::class, 'profile']);
     Route::post('logout', [UserController::class, 'logout']);
     Route::put('updateProfile',[UserController::class,'UpdateProfile']);
-    Route::post('search',[SearchController::class,'Search']);
+
     Route::get('find-near-users/{distance}', [FindLocationController::class,'nearUsers']);
     Route::put('updateProfile',[UserController::class,'UpdateProfile']);
 
 
 });
+Route::post('search',[SearchController::class,'Search']);
 
 
+//Route::get('/home', [NotificationController::class, 'index'])->name('home');
+//Route::post('/save-push-notification-fcm', [NotificationController::class, 'savePushNotificationFcm'])->name('save-push-notification-token');
+Route::post('send-notification', [NotificationController::class, 'send']);
 
-
-
-Route::group(['middleware' => ['auth:sanctum','localization']],function() {
+Route::group(['middleware' => ['localization']],function() {
 
     Route::controller(NotificationController::class)->group(function (){
 
@@ -46,6 +49,8 @@ Route::group(['middleware' => ['auth:sanctum','localization']],function() {
     Route::get('privacy-Policy',[PrivacyPolicyController::class,'index']);
     Route::get('about-us',[AboutUSController::class,'index']);
     Route::get('faq',[FaqController::class,'index']);
+
+    Route::get('/profile/{id}',[ProfileViewController::class,'ProfileView']);
 });
 
 

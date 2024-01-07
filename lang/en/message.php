@@ -12,5 +12,14 @@ return [
     'failed-update-message' => 'Failed To Update',
     'failed-delete-message' => 'Failed To Delete',
     'all-faq' => 'all faq',
+    'all-privacy-policy' => 'All privacy Policy',
+    'privacy-policy-not-found' => 'privacy Policy Not found',
+    'privacy-policy-updated' => 'privacy Policy Updated successfully',
+    'privacy-policy-deleted' => 'privacy Policy Deleted successfully',
+    'all-about-us' => 'All About Us',
+    'About-us-not-found' => 'About Us Not found',
+    'About-us-updated' => 'About Us Updated successfully',
+    'About-us-deleted' => 'About Us Deleted successfully',
+
 
 ];

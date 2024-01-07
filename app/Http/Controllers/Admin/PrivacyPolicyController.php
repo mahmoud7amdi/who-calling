@@ -23,7 +23,8 @@ class PrivacyPolicyController extends Controller
     public function StorePrivacy(Request $request)
     {
         privacyPolicy::insert([
-            'text' => $request->text,
+            'text_ar' => $request->text_ar,
+            'text_en' => $request->text_en,
         ]);
         $notification = array(
             'message' => 'privacy Added Successfully',
@@ -43,7 +44,8 @@ class PrivacyPolicyController extends Controller
         $Privacy = $request->id ;
 
         privacyPolicy::findOrFail($Privacy)->update([
-            'text'=> $request->text
+            'text_ar' => $request->text_ar,
+            'text_en' => $request->text_en,
         ]);
 
 

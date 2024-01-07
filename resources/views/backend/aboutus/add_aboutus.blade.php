@@ -33,10 +33,19 @@
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">About US</h6>
+                                            <h6 class="mb-0">About-us ar</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
-                                            <textarea name="text" required class="form-control" rows="3"></textarea>
+                                            <textarea name="text_ar" required class="form-control" rows="3" placeholder=""></textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">About-us en</h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea name="text_en" required class="form-control" rows="3" ></textarea>
 
                                         </div>
                                     </div>

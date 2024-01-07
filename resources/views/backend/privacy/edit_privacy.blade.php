@@ -34,10 +34,20 @@
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Privacy</h6>
+                                            <h6 class="mb-0">Privacy-ar</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
-                                            <textarea required  name="text"  class="form-control" rows="3">{{ $Privacy->text }}</textarea>
+                                            <textarea required  name="text_ar" class="form-control" rows="3">{{ $Privacy->text_ar }}</textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Privacy-en</h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea required  name="text_en" class="form-control" rows="3">{{ $Privacy->text_en }}</textarea>
 
                                         </div>
                                     </div>
@@ -71,12 +81,18 @@
         $(document).ready(function (){
             $('#myForm').validate({
                 rules: {
-                    text: {
+                    text_ar: {
+                        required : true,
+                    },
+                    text_en: {
                         required : true,
                     },
                 },
                 messages :{
-                    text: {
+                    text_ar: {
+                        required : 'Please Enter Privacy',
+                    },
+                    text_en: {
                         required : 'Please Enter Privacy',
                     },
                 },

@@ -99,13 +99,13 @@ class UserController extends Controller
         $user = $request->user();
         if ($request->hasFile('profile_image')){
             if($user->profile_image){
-                $old_path = public_path('uploads/profile_image/'.$user->profile_image);
+                $old_path = public_path('upload/user_image/'.$user->profile_image);
                 if (File::exists($old_path)){
                     File::delete($old_path);
                 }
             }
             $image_name ='profile_image-'.time().'.'.$request->profile_image->extension();
-            $request->profile_image->move(public_path('/uploads/profile_image'),$image_name);
+            $request->profile_image->move(public_path('/upload/user_image'),$image_name);
 
         }else{
             $image_name =$user->profile_image;

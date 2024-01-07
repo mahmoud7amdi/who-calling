@@ -86,7 +86,7 @@
                                                 <h6 class="mb-0">User Image</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <img id="showImage" src=" {{ (!empty($NormalUserDetails->photo)) ? url('uploads/profile_image/'.$NormalUserDetails->photo):url('uploads/no_image.jpg') }}" alt="Admin" style="width: 100px; height: 100px;" width="110">
+                                                <img id="showImage" src=" {{ (!empty($NormalUserDetails->profile_image)) ? url('upload/user_image/'.$NormalUserDetails->profile_image) : url('upload/no_image.jpg') }}" alt="image" style="width: 100px; height: 100px;" width="110">
 
                                             </div>
                                         </div>

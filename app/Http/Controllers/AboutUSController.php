@@ -17,12 +17,12 @@ class AboutUSController extends Controller
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Not found'
+                'message' => trans('message.failed-message')
             ]);
         }else{
             return response()->json([
                 'status' => 200,
-                'message' => 'All About Us' ,
+                'message' => trans('message.all-about-us') ,
                 'data' => $aboutus
             ]);
         }
@@ -42,12 +42,14 @@ class AboutUSController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            "text" => 'required'
+            "text_ar" => 'required',
+            "text_en" => 'required'
+
         ]);
         $aboutus = AboutUS::create($validated);
         return response()->json([
             'status' => 200,
-            'message' => 'About us added successfully' ,
+            'message' => trans('message.added-success') ,
             'data' => $aboutus
         ]);
     }
@@ -72,7 +74,7 @@ class AboutUSController extends Controller
         }else{
             return response()->json([
                 'status' => 400,
-                'message' => 'About Us not found',
+                'message' => trans('message.About-us-not-found'),
             ]);
         }
     }
@@ -88,11 +90,12 @@ class AboutUSController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update( Request $request, $id )
+    public function update(Request $request, $id )
     {
         $aboutUS = AboutUS::find($id);
         $validated = $request->validate([
-            "text" => 'required'
+            "text_ar" => 'required',
+            "text_en" => 'required'
         ]);
 
 
@@ -100,13 +103,13 @@ class AboutUSController extends Controller
                 $aboutUS->update($validated);
                 return response()->json([
                     'status' => 200,
-                    'message' => 'About US Updated Successfully',
+                    'message' => trans('message.About-us-updated'),
                     'data' => $aboutUS
                 ]);
             }else{
                 return response()->json([
                     'status' => 400,
-                    'message' => 'About US Not Found',
+                    'message' => trans('message.About-us-not-found'),
 
                 ]);
             }
@@ -124,14 +127,14 @@ class AboutUSController extends Controller
         if ($aboutUS){
             $aboutUS->delete();
             return response()->json([
-                'message' => 'About US deleted successfully',
+                'message' => trans('message.About-us-deleted'),
                 'status' => 200,
 
             ]);
 
         }else{
             return response()->json([
-                'message' => 'About US Not found',
+                'message' => trans('message.About-us-not-found'),
 
 
             ]);
